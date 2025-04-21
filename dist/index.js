@@ -13,7 +13,7 @@ app.get('/products', (req, res) => {
     if (id) {
         //encontrar o item
         const arrItem = itens.products.find(prod => prod.id === Number(id));
-        res.json(arrItem);
+        return res.json(arrItem);
     }
     const startIndex = (page - 1) * countItens;
     const endIndex = page * countItens;
