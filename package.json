@@ -12,6 +12,9 @@
         "express": "^4.21.2"
     },
     "devDependencies": {
+        "@types/cors": "^2.8.17",
+        "@types/express": "^5.0.1",
+        "@types/node": "^22.14.1",
         "typescript": "^5.8.3"
     }
 }

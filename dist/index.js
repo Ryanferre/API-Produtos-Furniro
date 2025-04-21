@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import itens from './itens.json' assert { type: 'json' };
+import itens from './itens.js';
 const app = express();
 //ativando cors
 app.use(cors());

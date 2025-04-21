@@ -1,5 +1,4 @@
-{
-    "products": [
+const itens = { products: [
         {
             "id": 1,
             "titleName": "Syltherine",
@@ -145,4 +144,5 @@
             "name": "mesa"
         }
     ]
-}
+};
+export default itens;
