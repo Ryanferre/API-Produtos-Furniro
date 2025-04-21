@@ -7,7 +7,7 @@ const app: Express = express();
 //ativando cors
 app.use(cors())
 
-app.get('/products', (req: Request, res: Response)=>{
+app.get('/products', (req: Request, res: Response): void=>{
     let id= req.query.id as string || undefined
     const page: number= parseInt(req.query._page as string) || 1 //pegue o numero na variavel na url ou comece com 1
     const countItens: number= parseInt(req.query._limit as string) || itens.products.length //pegue o limite que a requisicao esta pedindo ou
@@ -18,7 +18,7 @@ app.get('/products', (req: Request, res: Response)=>{
         //encontrar o item
         const arrItem= itens.products.find(prod => prod.id === Number(id))
 
-       return res.json(arrItem)
+       res.json(arrItem)
     }
     const startIndex = (page - 1) * countItens;
     const endIndex = page * countItens;
