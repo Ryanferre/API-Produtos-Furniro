@@ -3,28 +3,27 @@ import cors from 'cors'
 import itens from './itens.js';
 
 
-const app: Express = express();
-//ativando cors
-app.use(cors())
+   const app: Express = express();
+   //ativando cors
+   app.use(cors())
 
 app.get('/products', (req: Request, res: Response): void=>{
-    let id= req.query.id as string || undefined
-    const page: number= parseInt(req.query._page as string) || 1 //pegue o numero na variavel na url ou comece com 1
-    const countItens: number= parseInt(req.query._limit as string) || itens.products.length //pegue o limite que a requisicao esta pedindo ou
-                                                                //retorne a quantidade do json
+    let id= req.query.id as string || undefined//identifique a query da url
+    const page: number= parseInt(req.query._page as string) || 1 //pegando o numero na variavel da url ou comece com 1
+    const countItens: number= parseInt(req.query._limit as string) || itens.products.length //pegando o limite que a requisicao esta pedindo ou
+                                                                                            //retorne a quantidade do json
 
-    //verificando se id existe e retornando iten
-    if(id){
+    if(id){//verificando se id existe e retornando iten
         //encontrar o item
         const arrItem= itens.products.find(prod => prod.id === Number(id))
 
        res.json(arrItem)
     }
-    const startIndex = (page - 1) * countItens;
-    const endIndex = page * countItens;
+    const Indexstart = (page - 1) * countItens;
+    const Indexfind = page * countItens;
 
     //dividindo json
-    const paginatedProducts = itens.products.slice(startIndex, endIndex);
+    const paginatedProducts = itens.products.slice(Indexstart, Indexfind);
 
     //configuracao do header
     res.setHeader("x-total-count", itens.products.length);
