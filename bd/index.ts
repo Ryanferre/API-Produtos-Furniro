@@ -18,6 +18,7 @@ app.get('/products', (req: Request, res: Response): void=>{
         const arrItem= itens.products.find(prod => prod.id === Number(id))
 
        res.json(arrItem)
+       return
     }
     const Indexstart = (page - 1) * countItens;
     const Indexfind = page * countItens;
