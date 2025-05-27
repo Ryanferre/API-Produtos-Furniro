@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
-import itens from './itens.js';
-const app = express();
+import itens from './itens.js'; //importando array de objetos
+const Serverapp = express();
 //ativando cors
 app.use(cors());
 app.get('/products', (req, res) => {
@@ -25,6 +25,6 @@ app.get('/products', (req, res) => {
 });
 //escolha a porta ou use a 3000
 const port = process.env.PORT || 3000;
-app.listen(port, function () {
+Serverapp.listen(port, function () {
     console.warn(`Servidor rodando na porta ${port}`);
 });
